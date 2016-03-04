@@ -11,6 +11,11 @@ public class Destoyer extends Ship{
 	}
 
 	@Override
+	public String getName() {
+		return "destroyer";
+	}
+
+	@Override
 	protected Coord[] getOffsets() {
 		// TODO Auto-generated method stub
 		return new Coord[]{

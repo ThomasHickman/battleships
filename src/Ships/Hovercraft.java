@@ -11,6 +11,11 @@ public class Hovercraft extends Ship{
 	}
 
 	@Override
+	public String getName() {
+		return "hovercraft";
+	}
+
+	@Override
 	protected Coord[] getOffsets() {
 		// TODO Auto-generated method stub
 		return new Coord[]{

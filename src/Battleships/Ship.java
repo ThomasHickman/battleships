@@ -1,11 +1,26 @@
 package Battleships;
 
+import java.util.Arrays;
+import java.util.List;
+
 public abstract class Ship {
+	static Class<Ship>[] getShips() {
+        return (Class<Ship>[]) new Object[]{
+                Ships.Aircraft_Carrier.class,
+                Ships.Battleship.class,
+                Ships.Cruiser.class,
+                Ships.Destoyer.class,
+                Ships.Hovercraft.class
+        };
+    }
+
 	private int x;
 	private int y;
 
 	private Oriantation oriantation;
-	
+
+    public abstract String getName();
+
 	public boolean tryHit(int x, int y){
 		return false;
 	}

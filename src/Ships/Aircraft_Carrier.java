@@ -12,6 +12,11 @@ public class Aircraft_Carrier extends Ship {
 	}
 
 	@Override
+	public String getName() {
+		return "Aircraft carrier";
+	}
+
+	@Override
 	protected Coord[] getOffsets() {
 		// TODO Auto-generated method stub
 		return new Coord[]{

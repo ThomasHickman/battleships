@@ -11,6 +11,11 @@ public class Cruiser extends Ship{
 	}
 
 	@Override
+	public String getName() {
+		return "Cruser";
+	}
+
+	@Override
 	protected Coord[] getOffsets() {
 		// TODO Auto-generated method stub
 		return new Coord[]{
