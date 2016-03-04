@@ -15,19 +15,26 @@ public class GameEngine {
 		players[1] = player2;
 		
 		playerBoards = new BattleshipsBoard[2];
-		playerBoards[0] = players[0].getBoard();
-		playerBoards[1] = players[1].getBoard();
+		playerBoards[0] = players[0].getInitalBoard();
+		playerBoards[1] = players[1].getInitalBoard();
 		
 		int currentPlayerI = 0;
 		
 		while(true){
-			Coord playerMove = players[currentPlayerI].makeMove();
-			boolean playerMoveSuccess = playerBoards[1 - currentPlayerI /*other player*/].tryHit(playerMove);
-			players[currentPlayerI].onTryHit(true, playerMove, playerMoveSuccess);
-			players[1 - currentPlayerI].onTryHit(false, playerMove, playerMoveSuccess);
+			Player currPlayer = players[currentPlayerI];
+            Player oppPlayer = players[1 - currentPlayerI];
+            Board currBoard = playerBoards[currentPlayerI];
+            Board oppBoard = playerBoards[1 - currentPlayerI];
+
+			Coord playerMove = currPlayer.makeMove();
+			boolean playerMoveSuccess = oppBoard.tryHit(playerMove);
+			currPlayer.onTryHit(true, playerMove, playerMoveSuccess);
+            oppPlayer.onTryHit(false, playerMove, playerMoveSuccess);
 			
-			if(playerBoards[currentPlayerI].hasShipsLeft()){
-				out.print("Player " + (currentPlayerI + 1) + " won");
+			if(oppBoard.hasShipsLeft()){
+				currPlayer.onWin();
+                oppPlayer.onLose();
+                return;
 			}
 			
 			currentPlayerI = 1 - currentPlayerI;
