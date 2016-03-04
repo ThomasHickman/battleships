@@ -1,12 +1,11 @@
 package Battleships;
 
-import java.util.Arrays;
-import java.util.List;
+import Ships.AircraftCarrier;
 
 public abstract class Ship {
 	static Class<Ship>[] getShips() {
         return (Class<Ship>[]) new Object[]{
-                Ships.Aircraft_Carrier.class,
+                AircraftCarrier.class,
                 Ships.Battleship.class,
                 Ships.Cruiser.class,
                 Ships.Destoyer.class,
