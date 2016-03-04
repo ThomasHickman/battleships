@@ -1,20 +1,26 @@
 package Battleships;
 import static java.lang.System.out;
 import java.lang.System;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import Ships;
+import Ships.Battleship;
+import Ships.Cruiser;
+import com.sun.java.util.jar.pack.Package;
 
 
 public class HumanPlayer implements Player {
 	private MarkeredBoard markeredBoard = new MarkeredBoard();
 	Ship ships;
+    private String playerName;
 	
-	public HumanPlayer(){
-		ships[0] = Ships.Battleship;
+	public HumanPlayer(String playerName){
+        this.playerName = playerName;
 	}
 	
 	private void printBoard(){
-		
+		out.println(markeredBoard);
 	}
 	
 	private Coord askForCoord(){
@@ -28,27 +34,50 @@ public class HumanPlayer implements Player {
 	}
 
 	@Override
-	public BattleshipsBoard getBoard() {
-		for(int i = 0;i < 9;i++){
-			printBoard();
-			out.print("Enter the position of the first ship >>>");
-			Coord shipPos = askForCoord();
-			if(markeredBoard.tryInsertShip(shipPos)){
-				
-			}
+	public BattleshipsBoard getInitalBoard() {
+        for(Class<Ship> ShipClass: Ship.getShips()){
+            while(true){
+                try{
+                    Ship currShip = ShipClass.newInstance();
+                    printBoard();
+                    out.print("Enter the position of the " + currShip.getName() + " >>>");
+                    Coord shipPos = askForCoord();
+                    if(markeredBoard.tryInsertShip(ShipClass.newInstance())) {
+                        break;
+                    }
+                    else{
+                        out.println("Incorrect ship position");
+                    }
+                }
+                catch(Exception e){
+                    throw new RuntimeException(e);
+                }
+            }
 		}
-		return null;
+		return markeredBoard;
 	}
 
 	@Override
 	public Coord makeMove() {
-		// TODO Auto-generated method stub
-		return null;
+		printBoard();
+        out.print("Enter the position you would like to hit >>>");
+        return askForCoord();
 	}
 
 	@Override
 	public void onTryHit(boolean isMe, Coord moveTried, boolean hasHit) {
-		// TODO Auto-generated method stub
-		
+		if(!isMe){
+            markeredBoard.makeHit(moveTried, hasHit);
+        }
+	}
+
+	@Override
+	public void onWin() {
+		out.println(this.playerName + " won");
+	}
+
+	@Override
+	public void onLose() {
+        out.println(this.playerName + " lost");
 	}
 }

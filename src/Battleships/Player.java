@@ -1,8 +1,12 @@
 package Battleships;
 public interface Player {
-	public BattleshipsBoard getBoard();
+	BattleshipsBoard getInitalBoard();
 	
-	public Coord makeMove();
+	Coord makeMove();
 	
-	public void onTryHit(boolean isMe, Coord moveTried, boolean hasHit);
+	void onTryHit(boolean isMe, Coord moveTried, boolean hasHit);
+
+	void onWin();
+
+    void onLose();
 }
