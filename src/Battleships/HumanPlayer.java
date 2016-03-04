@@ -4,11 +4,6 @@ import java.lang.System;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import Ships;
-import Ships.Battleship;
-import Ships.Cruiser;
-import com.sun.java.util.jar.pack.Package;
-
 
 public class HumanPlayer implements Player {
 	private MarkeredBoard markeredBoard = new MarkeredBoard();
