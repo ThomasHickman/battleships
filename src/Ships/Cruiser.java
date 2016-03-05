@@ -10,6 +10,11 @@ public class Cruiser extends Ship{
 	}
 
 	@Override
+	public char getCharRepr() {
+		return 'C';
+	}
+
+	@Override
 	public String getName() {
 		return "Cruser";
 	}

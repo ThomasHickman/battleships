@@ -10,6 +10,11 @@ public class Battleship extends Ship{
 	}
 
 	@Override
+	public char getCharRepr() {
+		return 'B';
+	}
+
+	@Override
 	public String getName() {
 		return "Battleship";
 	}

@@ -11,6 +11,11 @@ public class AircraftCarrier extends Ship {
 	}
 
 	@Override
+	public char getCharRepr() {
+		return 'A';
+	}
+
+	@Override
 	public String getName() {
 		return "Aircraft carrier";
 	}

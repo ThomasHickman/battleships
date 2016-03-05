@@ -10,6 +10,11 @@ public class Hovercraft extends Ship{
 	}
 
 	@Override
+	public char getCharRepr() {
+		return 'H';
+	}
+
+	@Override
 	public String getName() {
 		return "hovercraft";
 	}

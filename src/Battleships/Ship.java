@@ -22,12 +22,30 @@ public abstract class Ship {
 	private Orientation orientation;
     private Coord position;
 
+    private int[] positionThatAreHit;
+
     public abstract String getName();
 
 	public boolean tryHit(int x, int y){
 		throw new NotImplementedException();
 	}
-	
+
+    public String getShipCoordInfo(Coord coord){
+        Coord[] positions = getPositions();
+        for(int i = 0;i < positions.length;i++){
+            Coord pos = positions[i];
+            if(pos == coord){
+                if(Arrays.asList(positionThatAreHit).contains(i)){
+                    return "HIT";
+                }
+                else{
+                    return "SHIP";
+                }
+            }
+        }
+        return "EMPTY";
+    }
+
 	public boolean isSunk(){
 		return true;
 	}
@@ -46,5 +64,8 @@ public abstract class Ship {
 	protected Ship(Coord position, Orientation ordination){
         this.position = position;
         this.orientation = ordination;
+        this.positionThatAreHit = new int[getOffsets().length];
 	}
+
+    public abstract char getCharRepr();
 }

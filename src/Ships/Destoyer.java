@@ -10,6 +10,11 @@ public class Destoyer extends Ship{
 	}
 
 	@Override
+	public char getCharRepr() {
+		return 'D';
+	}
+
+	@Override
 	public String getName() {
 		return "destroyer";
 	}
