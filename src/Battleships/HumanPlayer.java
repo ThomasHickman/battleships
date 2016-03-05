@@ -1,8 +1,6 @@
 package Battleships;
 import static java.lang.System.out;
 import java.lang.System;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class HumanPlayer implements Player {

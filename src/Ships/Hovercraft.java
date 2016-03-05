@@ -1,11 +1,10 @@
 package Ships;
 
 import Battleships.Coord;
-import Battleships.Oriantation;
 import Battleships.Ship;
 
 public class Hovercraft extends Ship{
-	Hovercraft(Coord position, Oriantation orinataion) {
+	Hovercraft(Coord position, Orientation orinataion) {
 		super(position, orinataion);
 		// TODO Auto-generated constructor stub
 	}

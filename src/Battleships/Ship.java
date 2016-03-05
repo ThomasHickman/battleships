@@ -1,6 +1,9 @@
 package Battleships;
-
 import Ships.AircraftCarrier;
+import Ships.Orientation;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+import java.util.*;
 
 public abstract class Ship {
 	static Class<Ship>[] getShips() {
@@ -16,12 +19,13 @@ public abstract class Ship {
 	private int x;
 	private int y;
 
-	private Oriantation oriantation;
+	private Orientation orientation;
+    private Coord position;
 
     public abstract String getName();
 
 	public boolean tryHit(int x, int y){
-		return false;
+		throw new NotImplementedException();
 	}
 	
 	public boolean isSunk(){
@@ -29,12 +33,18 @@ public abstract class Ship {
 	}
 	
 	public Coord[] getPositions(){
-		return null;
+        Coord[] retValue = orientation.applyTransform(getOffsets());
+        for(Coord el: retValue){
+            el.x += position.x;
+            el.y += position.y;
+        }
+        return retValue;
 	}
 	
 	protected abstract Coord[] getOffsets();
 	
-	protected Ship(Coord position, Oriantation orinataion){
-		
+	protected Ship(Coord position, Orientation ordination){
+        this.position = position;
+        this.orientation = ordination;
 	}
 }

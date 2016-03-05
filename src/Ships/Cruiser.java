@@ -1,11 +1,10 @@
 package Ships;
 
 import Battleships.Coord;
-import Battleships.Oriantation;
 import Battleships.Ship;
 
 public class Cruiser extends Ship{
-	Cruiser(Coord position, Oriantation orinataion) {
+	Cruiser(Coord position, Orientation orinataion) {
 		super(position, orinataion);
 		// TODO Auto-generated constructor stub
 	}

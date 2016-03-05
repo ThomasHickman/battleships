@@ -1,6 +1,7 @@
 #intellij files
 
 .idea
+bin
 
 *.class
 

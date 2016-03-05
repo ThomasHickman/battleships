@@ -1,11 +1,10 @@
 package Ships;
 
 import Battleships.Coord;
-import Battleships.Oriantation;
 import Battleships.Ship;
 
 public class Destoyer extends Ship{
-	Destoyer(Coord position, Oriantation orinataion) {
+	public Destoyer(Coord position, Orientation orinataion) {
 		super(position, orinataion);
 		// TODO Auto-generated constructor stub
 	}

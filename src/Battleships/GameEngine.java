@@ -1,5 +1,4 @@
 package Battleships;
-import static java.lang.System.out;
 
 public class GameEngine {
 	
