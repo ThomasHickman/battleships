@@ -4,7 +4,7 @@ import Battleships.Coord;
 import Battleships.Ship;
 
 public class Battleship extends Ship{
-	Battleship(Coord position, Orientation orinataion) {
+	public Battleship(Coord position, Orientation orinataion) {
 		super(position, orinataion);
 		// TODO Auto-generated constructor stub
 	}

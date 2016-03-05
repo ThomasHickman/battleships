@@ -1,6 +1,7 @@
 package Battleships;
 
 import Ships.AircraftCarrier;
+import Ships.Destoyer;
 import Ships.Orientation;
 import junit.framework.TestCase;
 
@@ -18,7 +19,8 @@ public class BattleshipsBoardTest extends TestCase {
     public void testTryInsertShip() throws Exception {
         assertFalse("wrong ships reported",
             board.tryInsertShip(new AircraftCarrier(new Coord(1, 1), Orientation.NORTH)));
+
         assertTrue("correct ships pass",
-                board.tryInsertShip(new AircraftCarrier(new Coord(1, 1), Orientation.EAST)));
+            board.tryInsertShip(new Destoyer(new Coord(1, 1), Orientation.EAST)));
     }
 }

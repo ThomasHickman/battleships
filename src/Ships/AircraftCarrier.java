@@ -5,7 +5,7 @@ import Battleships.Ship;
 
 public class AircraftCarrier extends Ship {
 
-	AircraftCarrier(Coord position, Orientation orientation) {
+	public AircraftCarrier(Coord position, Orientation orientation) {
 		super(position, orientation);
 		// TODO Auto-generated constructor stub
 	}
